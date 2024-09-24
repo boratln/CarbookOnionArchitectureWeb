@@ -1,0 +1,15 @@
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\Carbook.Application.csproj.AssemblyReference.cache
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\Carbook.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\Carbook.Application.AssemblyInfoInputs.cache
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\Carbook.Application.AssemblyInfo.cs
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\Carbook.Application.csproj.CoreCompileInputs.cache
+C:\Users\borat\source\repos\Carbook\Carbook.Application\bin\Debug\net8.0\Carbook.Application.deps.json
+C:\Users\borat\source\repos\Carbook\Carbook.Application\bin\Debug\net8.0\Carbook.Application.dll
+C:\Users\borat\source\repos\Carbook\Carbook.Application\bin\Debug\net8.0\Carbook.Application.pdb
+C:\Users\borat\source\repos\Carbook\Carbook.Application\bin\Debug\net8.0\Carbook.Domain.dll
+C:\Users\borat\source\repos\Carbook\Carbook.Application\bin\Debug\net8.0\Carbook.Domain.pdb
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\Carbook..38CD553D.Up2Date
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\Carbook.Application.dll
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\refint\Carbook.Application.dll
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\Carbook.Application.pdb
+C:\Users\borat\source\repos\Carbook\Carbook.Application\obj\Debug\net8.0\ref\Carbook.Application.dll
