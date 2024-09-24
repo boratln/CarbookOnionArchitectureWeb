@@ -1,0 +1,15 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_HeadUILayoutComponentPartial")
+  <body>
+    @await Component.InvokeAsync("_NavbarUILayoutComponentPartial")
+    @await Component.InvokeAsync("_MainCoverUILayoutComponentPartial")
+   @RenderBody()
+    @await Component.InvokeAsync("_FooterUILayoutComponentPartial")
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+    @await Component.InvokeAsync("_ScriptsUILayoutComponentPartial")    
+  </body>
+</html>
