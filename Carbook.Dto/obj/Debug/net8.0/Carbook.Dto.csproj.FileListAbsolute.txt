@@ -1,0 +1,11 @@
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\bin\Debug\net8.0\Carbook.Dto.deps.json
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\bin\Debug\net8.0\Carbook.Dto.dll
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\bin\Debug\net8.0\Carbook.Dto.pdb
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\obj\Debug\net8.0\Carbook.Dto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\obj\Debug\net8.0\Carbook.Dto.AssemblyInfoInputs.cache
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\obj\Debug\net8.0\Carbook.Dto.AssemblyInfo.cs
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\obj\Debug\net8.0\Carbook.Dto.csproj.CoreCompileInputs.cache
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\obj\Debug\net8.0\Carbook.Dto.dll
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\obj\Debug\net8.0\refint\Carbook.Dto.dll
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\obj\Debug\net8.0\Carbook.Dto.pdb
+C:\Users\borat\source\repos\Carbook\Carbook.Dto\obj\Debug\net8.0\ref\Carbook.Dto.dll
