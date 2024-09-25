@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K51WUF2pW9o=",
+  "dgSpecHash": "kNlwEQZdHMU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\borat\\source\\repos\\Carbook\\CarBook.WebApi\\CarBook.WebApi.csproj",
+  "projectFilePath": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\CarBook.WebApi\\CarBook.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\borat\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\borat\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

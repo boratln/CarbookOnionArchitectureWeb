@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xdlLp4sdJ4Q=",
+  "dgSpecHash": "5FFXjTWzF1Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.WebUI\\Carbook.WebUI.csproj",
+  "projectFilePath": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.WebUI\\Carbook.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\borat\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\borat\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Domain\\Carbook.Domain.csproj": {}
+    "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Domain\\Carbook.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Domain\\Carbook.Domain.csproj": {
+    "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Domain\\Carbook.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Domain\\Carbook.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Domain\\Carbook.Domain.csproj",
         "projectName": "Carbook.Domain",
-        "projectPath": "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Domain\\Carbook.Domain.csproj",
+        "projectPath": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Domain\\Carbook.Domain.csproj",
         "packagesPath": "C:\\Users\\borat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Domain\\obj\\",
+        "outputPath": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

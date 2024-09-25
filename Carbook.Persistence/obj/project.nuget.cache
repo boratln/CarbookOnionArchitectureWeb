@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ruBy1G4OCIA=",
+  "dgSpecHash": "K6Ov4/cT3Ws=",
   "success": true,
-  "projectFilePath": "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Persistence\\Carbook.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Persistence\\Carbook.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\borat\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\borat\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

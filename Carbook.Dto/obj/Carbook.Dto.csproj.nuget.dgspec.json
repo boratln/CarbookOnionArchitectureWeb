@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Dto\\Carbook.Dto.csproj": {}
+    "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Dto\\Carbook.Dto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Dto\\Carbook.Dto.csproj": {
+    "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Dto\\Carbook.Dto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Dto\\Carbook.Dto.csproj",
+        "projectUniqueName": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Dto\\Carbook.Dto.csproj",
         "projectName": "Carbook.Dto",
-        "projectPath": "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Dto\\Carbook.Dto.csproj",
+        "projectPath": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Dto\\Carbook.Dto.csproj",
         "packagesPath": "C:\\Users\\borat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\borat\\source\\repos\\Carbook\\Carbook.Dto\\obj\\",
+        "outputPath": "C:\\Users\\borat\\source\\repos\\Carbook\\CarbookOnionArchitectureWeb\\Carbook.Dto\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
