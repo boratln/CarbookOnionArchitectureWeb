@@ -17,7 +17,10 @@ namespace CarBook.WebApi.Controllers
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
         private readonly GetLast5CarWithBrandQueryHandler? _getLast5CarWithBrandQueryHandler;
-        public CarsController(CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler,
+
+	
+
+		public CarsController(CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler,
             GetCarByIdQueryHandler getCarByIdQueryHandler, GetCarQueryHandler getCarQueryHandler, RemoveCarCommandHandler removeCarCommandHandler,
             GetCarWithBrandQueryHandler getCarWithBrandQueryHandler, GetLast5CarWithBrandQueryHandler getLast5CarWithBrandQueryHandler
             )
@@ -59,19 +62,21 @@ namespace CarBook.WebApi.Controllers
         public async Task<IActionResult> Post(CreateCarCommand command)
         {
             await _createCarCommandHandler.Handle(command);
-            return Ok("Marka başarıyla eklendi");
+            return Ok("Araç başarıyla eklendi");
         }
         [HttpPut]
         public async Task<IActionResult> Put(UpdateCarCommand command)
         {
             await _updateCarCommandHandler.Handle(command);
-            return Ok("Marka başarıyla güncellendi");
+            return Ok("Araç başarıyla güncellendi");
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             await _removeCarCommandHandler.Handle(new RemoveCarCommand(id));
-            return Ok("Marka başarıyla silindi");
+            return Ok("Araç başarıyla silindi");
         }
-    }
+      
+
+	}
 }
