@@ -10,6 +10,8 @@ namespace Carbook.Application.Features.Mediator.Commands.BlogCommands
     public class CreateBlogCommand:IRequest
     {
         public string Title { get; set; }
+        public string BlogDescription { get; set; }
+
         public int AuthorId { get; set; }
         public string CoverImageUrl { get; set; }
         public DateTime CreatedDate { get; set; }
