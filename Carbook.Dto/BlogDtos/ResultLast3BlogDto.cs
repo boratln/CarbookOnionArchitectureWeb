@@ -10,6 +10,8 @@ namespace Carbook.Dto.BlogDtos
     {
         public int BlogId { get; set; }
         public string Title { get; set; }
+        public string BlogDescription { get; set; }
+
         public int AuthorId { get; set; }
         public string AuthorName { get; set; }
 
