@@ -33,6 +33,7 @@ namespace Carbook.Application.Features.Mediator.Handlers.BlogHandlers
                 CreatedDate = x.CreatedDate,
                 Title = x.Title,
                 AuthorName=x.Author.Name,
+                BlogDescription=x.BlogDescription
 
             }).ToList();
         }
