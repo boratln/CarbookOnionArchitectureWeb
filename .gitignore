@@ -1,2 +1,7 @@
+# Ignore build output directories
+bin/
+obj/
 
 /.vs
+/Carbook.Application/bin/Debug/net8.0
+/Carbook.Application/bin/Debug
