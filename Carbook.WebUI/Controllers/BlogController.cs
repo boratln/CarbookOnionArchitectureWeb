@@ -28,5 +28,12 @@ namespace Carbook.WebUI.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> BlogDetail(int id)
+        {
+            TempData["title"] = "Bloglar";
+            TempData["desc"] = "Blog Detayı ve Yorumlar";
+
+            return View();
+        }
     }
 }
