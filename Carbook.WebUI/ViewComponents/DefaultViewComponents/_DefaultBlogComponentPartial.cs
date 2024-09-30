@@ -17,6 +17,7 @@ namespace Carbook.WebUI.ViewComponents.DefaultViewComponents
         {
             var client=_httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:7076/api/Blogs/GetLast3BlogWithAuthor");
+            var data = response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
                 var jsonData=await response.Content.ReadAsStringAsync();
