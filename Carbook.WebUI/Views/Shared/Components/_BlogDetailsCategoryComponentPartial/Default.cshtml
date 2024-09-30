@@ -1,0 +1,13 @@
+﻿
+@model List<ResultCategoryDto>
+<div class="sidebar-box ftco-animate">
+    <div class="categories">
+        <h3>Kategoriler</h3>
+        @foreach(var data in Model)
+        {
+            <li><a href="#">@data.Name <span>(0)</span></a></li>
+
+        }
+      
+    </div>
+</div>
