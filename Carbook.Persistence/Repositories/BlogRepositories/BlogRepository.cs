@@ -25,6 +25,29 @@ namespace Carbook.Persistence.Repositories.BlogRepositories
             return values;
         }
 
+        public Blog GetByBlog(int id)
+        {
+            var value = _carbookContext.Blogs.Include(x => x.Author).Include(x => x.Category).FirstOrDefault(x => x.BlogId == id);
+            return value;
+        }
+
+        public Blog GetByBlogWithAuthor(int id)
+        {
+            // Blog ile birlikte yazarı dahil ederek tek bir sorgu ile çekiyoruz
+            var value = _carbookContext.Blogs
+                                       .Include(x => x.Author)  // Blog ile yazarı da dahil ediyoruz
+                                       .FirstOrDefault(x => x.BlogId == id); // BlogId'ye göre arıyoruz
+
+            // Eğer blog bulunamazsa, null döneriz
+            if (value == null)
+            {
+                return null;
+            }
+
+            return value;
+        }
+
+
         public List<Blog> GetLast3BlogWithAuthors()
         {
             var values = _carbookContext.Blogs.Include(x => x.Author).OrderByDescending(x => x.BlogId).Take(3).ToList();
