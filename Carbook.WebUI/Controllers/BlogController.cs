@@ -32,8 +32,18 @@ namespace Carbook.WebUI.Controllers
         {
             TempData["title"] = "Bloglar";
             TempData["desc"] = "Blog Detayı ve Yorumlar";
+            ViewBag.blogid = id;
+            //var client = _httpClientFactory.CreateClient();
+            //var responseMessage = await client.GetAsync("https://localhost:7076/api/Blogs/"+id);
+            //if (responseMessage.IsSuccessStatusCode)
+            //{
+            //    var jsonData= await responseMessage.Content.ReadAsStringAsync();
+            //    var value = JsonConvert.DeserializeObject<GetByBlogDto>(jsonData);
+            //    return View(value);
+            //}
+            var dto = new GetByBlogAndAuthorDto();
 
-            return View();
+            return View(dto);
         }
     }
 }
