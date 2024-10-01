@@ -12,7 +12,7 @@ namespace Carbook.Persistence.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=BORAPC;initial Catalog=CarbookDb;integrated Security=true;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer("Server=BORAPC;initial Catalog=CarbookDb;integrated Security=true;TrustServerCertificate=true;").EnableSensitiveDataLogging();
 
         }
         public DbSet<About> Abouts { get; set; }
