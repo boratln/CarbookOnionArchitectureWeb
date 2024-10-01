@@ -6,3 +6,6 @@ obj/
 /Carbook.Application/bin/Debug/net8.0
 /Carbook.Application/bin/Debug
 *.dll
+*.dll
+/Carbook.Application/bin/Debug
+/Carbook.Application/bin/Debug/net8.0
