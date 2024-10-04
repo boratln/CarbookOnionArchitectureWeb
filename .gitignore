@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Carbook.Application/bin/Debug/net8.0
+/Carbook.Application/bin/Debug
+/Carbook.Application/bin
+/Carbook.Application
