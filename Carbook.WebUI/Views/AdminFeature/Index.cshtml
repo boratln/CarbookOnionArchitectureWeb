@@ -1,0 +1,58 @@
+﻿@model List<ResultFeatureDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="Featured">
+                    <div class="Featured-body">
+                        <h4 class="Featured-title">Araba Özellikleri Listesi</h4>
+                        <p class="Featured-subtitle mb-4">
+                            Arabalarla ilgili yeni özellik ekleme,(Klima,Bluetooth,Audio,Elektrik vb.) özellikler listesi,özellikler üzerinde düzenleme ve bir özelliği kaldırma işlemini buradan gerçekleştirebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Sil</th>
+                                        <th>Güncelle</th>
+                                   
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <th scope="row">@count</th>
+                                            <td>@data.Name</td>                                      
+                                            <td><a href="/AdminFeature/DeleteFeature/@data.FeatureId" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/AdminFeature/UpdateFeature/@data.FeatureId" class="btn btn-outline-success">Güncelle</a></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                            <a href="/AdminFeature/CreateFeature/" class="btn btn-outline-primary">Yeni Özellik Girişi</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
