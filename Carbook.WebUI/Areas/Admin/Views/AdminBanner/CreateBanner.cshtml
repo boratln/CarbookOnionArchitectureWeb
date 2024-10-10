@@ -1,0 +1,46 @@
+﻿@using Carbook.Dto.BannerDtos
+
+@model CreateBannerDto
+@{
+    ViewData["Title"] = "CreateBanner";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Banner Girişi</h4>
+                        <p class="card-subtitle mb-4">Banner ile ilgili bilgileri aşağıdaki kutucuklara girebilirsiniz. Veri girişinden sonra kaydet butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Başlık</label>
+                                <input type="text" class="form-control" name="Title"  />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Açıklama</label>
+                                <input type="text" class="form-control" name="Description" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Video Açıklama</label>
+                                <input type="text" class="form-control" name="VideoDescription" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Video URL</label>
+                                <input type="text" class="form-control" name="VideoUrl" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Banneri Kaydet</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
