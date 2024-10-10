@@ -1,0 +1,64 @@
+﻿@using Carbook.Dto.BannerDtos
+@model List<ResultBannerDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="Featured">
+                    <div class="Featured-body">
+                        <h4 class="Featured-title">Banner</h4>
+                        <p class="Featured-subtitle mb-4">
+                            Banner ile ilgili  ekleme , düzenleme ve banneri kaldırma işlemini buradan gerçekleştirebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Açıklama</th>
+                                        <th>Video Açıklama</th>
+                                        <th>Sil</th>
+                                        <th>Güncelle</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <th scope="row">@count</th>
+                                            <td>@data.Title</td>
+                                            <td>@data.Description</td>
+                                            <td>@data.VideoDescription</td>
+                                            <td><a href="/Admin/AdminBanner/DeleteBanner/@data.BannerId" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Admin/AdminBanner/UpdateBanner/@data.BannerId" class="btn btn-outline-success">Güncelle</a></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                            <a href="/Admin/AdminBanner/CreateBanner/" class="btn btn-outline-primary">Yeni Banner Girişi</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
