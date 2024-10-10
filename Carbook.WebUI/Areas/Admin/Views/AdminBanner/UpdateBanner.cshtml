@@ -1,0 +1,48 @@
+﻿@using Carbook.Dto.BannerDtos
+@model UpdateBannerDto
+@{
+    ViewData["Title"] = "UpdateBanner";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Banner Güncelleme Sayfası</h4>
+                        <p class="card-subtitle mb-4">Banner ile ilgili bilgileri aşağıdaki kutucuklara girebilirsiniz. Veri girişinden sonra kaydet butonuna tıklayarak güncelleme işlemini tamamlayabilirsiniz.</p>
+                        <form method="post">
+                            <input type="hidden" name="BannerId" />
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Başlık</label>
+                                <input type="text" class="form-control" value="@Model.Title" name="Title" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Açıklama</label>
+                                <input type="text" class="form-control" value="@Model.Description" name="Description" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Video Açıklama</label>
+                                <input type="text" class="form-control" value="@Model.VideoDescription" name="VideoDescription" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Video URL</label>
+                                <input type="text" class="form-control" value="@Model.VideoUrl" name="VideoUrl" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Banneri Kaydet</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
