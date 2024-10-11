@@ -1,0 +1,33 @@
+﻿@model CreateCategoryDto
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Kategori Girişi</h4>
+                        <p class="card-subtitle mb-4">Kategori ile ilgili bilgileri aşağıdaki kutucuklara girebilirsiniz. Veri girişinden sonra kaydet butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Başlık</label>
+                                <input type="text" class="form-control" name="Name" />
+                            </div>
+                         
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Kategori Kaydet</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
