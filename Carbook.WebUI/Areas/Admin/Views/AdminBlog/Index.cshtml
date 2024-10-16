@@ -1,0 +1,71 @@
+﻿@model List<ResultBlogWithAuthorDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="Featured">
+                    <div class="Featured-body">
+                        <h4 class="Featured-title">Blog</h4>
+                        <p class="Featured-subtitle mb-4">
+                            Bloglarla ilgili işlemleri buradan gerçekleştirebilirsiniz.Blog girişi yaparken bilgileri eksiksizce dolduralım.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Kategori Adı</th>
+                                        <th>Blog Kapak Fotoğrafı</th>
+                                        <th>Blog Açıklaması</th>
+                                        <th>Blog Tarihi</th>
+                                        <th>Yazar Adı</th>
+                                        <th>Kaldır</th>
+                                        <th>Bloğu Aç</th>
+                                        <th>Yorumlar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <th scope="row">@count</th>
+                                            <td>@data.Title </td>
+                                            <td>@data.CategoryName</td>
+                                            <td>@data.CoverImageUrl</td>
+                                            <td>@data.BlogDescription</td>
+                                            <td>@data.CreatedDate.ToShortDateString()</td>
+                                            <td>@data.AuthorName</td>
+
+                                            <td><a href="/Admin/AdminBlog/DeleteBlog/@data.BlogId" class="btn btn-outline-danger">Kaldır</a></td>
+                                            <td><a href="/Blog/BlogDetail/@data.BlogId" class="btn btn-outline-danger">Bloğu Aç</a></td>
+                                            <td><a href="/Admin/AdminComment/Index/@data.BlogId" class="btn btn-outline-warning">Yorumlar</a></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                            <a href="/Admin/AdminBlog/CreateBlog/" class="btn btn-outline-primary">Yeni Blog Girişi</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
