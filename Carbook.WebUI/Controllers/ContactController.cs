@@ -27,8 +27,8 @@ namespace Carbook.WebUI.Controllers
             StringContent stringContent = new StringContent(jsonData,System.Text.Encoding.UTF8,"application/json");
             var responseMessage = await client.PostAsync("https://localhost:7076/api/Contacts", stringContent);
             if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Default", "Index");
+            {           
+                return RedirectToAction("Index", "Default");
             }
             return View();
 
