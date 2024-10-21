@@ -1,0 +1,33 @@
+﻿@model UpdateLocationDto
+@{
+    ViewData["Title"] = "UpdateLocation";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Adres Bilgisi Girişi</h4>
+                        <p class="card-subtitle mb-4">Adres alanına ait bilgileri aşağıdaki panelden girebilirsiniz. Tema bütünlüğünün bozulmaması adına lütfen sadece 1 tane veri girişi yapınız. Mevcutta veriniz varsa düzenleyiniz. Yeni veri girişi yaparsanız öncekini siliniz.</p>
+                        <form method="post">
+                            <input type="hidden" asp-for="LocationId" />
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Lokasyon</label>
+                                <input type="text" class="form-control" asp-for="Name" placeholder="Lokasyon Bilgisini Giriniz" />
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adres Bilgisini Kaydet</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
