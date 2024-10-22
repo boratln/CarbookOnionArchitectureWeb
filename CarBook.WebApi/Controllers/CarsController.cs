@@ -1,6 +1,8 @@
 ﻿using Carbook.Application.Features.CQRS.Commands.CarCommands;
 using Carbook.Application.Features.CQRS.Handlers.CarHandlers;
 using Carbook.Application.Features.CQRS.Queries.CarQueries;
+using Carbook.Application.Features.Mediator.Queries.StatistictsQueries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,13 +19,14 @@ namespace CarBook.WebApi.Controllers
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
         private readonly GetLast5CarWithBrandQueryHandler? _getLast5CarWithBrandQueryHandler;
+        private readonly IMediator _mediator;
 
-	
 
-		public CarsController(CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler,
+
+        public CarsController(CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler,
             GetCarByIdQueryHandler getCarByIdQueryHandler, GetCarQueryHandler getCarQueryHandler, RemoveCarCommandHandler removeCarCommandHandler,
             GetCarWithBrandQueryHandler getCarWithBrandQueryHandler, GetLast5CarWithBrandQueryHandler getLast5CarWithBrandQueryHandler
-            )
+, IMediator mediator)
         {
             _createCarCommandHandler = createCarCommandHandler;
             _updateCarCommandHandler = updateCarCommandHandler;
@@ -32,6 +35,7 @@ namespace CarBook.WebApi.Controllers
             _getCarQueryHandler = getCarQueryHandler;
             _getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
             _getLast5CarWithBrandQueryHandler = getLast5CarWithBrandQueryHandler;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -76,6 +80,7 @@ namespace CarBook.WebApi.Controllers
             await _removeCarCommandHandler.Handle(new RemoveCarCommand(id));
             return Ok("Araç başarıyla silindi");
         }
+       
       
 
 	}
