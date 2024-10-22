@@ -1,0 +1,11 @@
+1-Car Count
+2-Location Count
+3-Author Count
+4-Blog Count
+5-Brand Count
+6-Average Daily Car Rental Price
+7-Average Weekly Car Rental Price
+8-Average Monthly Car Rental Price
+9-Number of Automatic Gear Cars
+10-Brand With The Most Vehicles
+11-Blog Title With The Most Comments
