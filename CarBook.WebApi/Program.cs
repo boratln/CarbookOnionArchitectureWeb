@@ -11,6 +11,7 @@ using Carbook.Application.Features.RepositoryPattern.CommentRepositories;
 using Carbook.Application.Interfaces;
 using Carbook.Application.Interfaces.BlogInterFaces;
 using Carbook.Application.Interfaces.CarInterfaces;
+using Carbook.Application.Interfaces.StatistictsInterfaces;
 using Carbook.Application.Interfaces.TagCloudInterfaces;
 using Carbook.Application.Repositories.CarPricingRepository;
 using Carbook.Application.Services;
@@ -21,6 +22,7 @@ using Carbook.Persistence.Repositories.BlogRepositories;
 using Carbook.Persistence.Repositories.CarPricingRepositories;
 using Carbook.Persistence.Repositories.CarRepositories;
 using Carbook.Persistence.Repositories.CommentRepositories;
+using Carbook.Persistence.Repositories.StatisticRepositories;
 using Carbook.Persistence.Repositories.TagCloudRepositories;
 using Microsoft.AspNetCore.HttpLogging;
 
@@ -91,6 +93,7 @@ builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
 builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 builder.Services.AddScoped(typeof(ITagCloudRepository), typeof(TagCloudRepository));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
+builder.Services.AddScoped(typeof(IstatisticRepository), typeof(StatistictsRepository));
 
 //Mediatr Dependecy Injection
 
