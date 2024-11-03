@@ -8,17 +8,18 @@ namespace Carbook.Application.Interfaces.StatistictsInterfaces
 {
     public interface IstatisticRepository
     {
-         int GetCarCount();
-         int GetAuthorCount();
-         int GetBlogCount();
-         int GetBrandCount();
-        double GetAvgRentPriceForDaily();
-        double GetAvgRentPriceForWeekly();
-        double GetAvgRentPriceForMonthly();
-        int GetCarCountByTransmissionIsAuto();
-        string BrandNameByMaxCar();
-        string BlogTitleByMaxBlogComment();
-        int GetCarCountByKmSmallerThan1000();
+        int GetCarCount();
+        int GetLocationCount();
+        int GetAuthorCount();
+        int GetBlogCount();
+        int GetBrandCount();
+        decimal GetAvgRentPriceForDaily();
+        decimal GetAvgRentPriceForWeekly();
+        decimal GetAvgRentPriceForMonthly();
+        int GetCarCountByTranmissionIsAuto();
+        string GetBrandNameByMaxCar();
+        string GetBlogTitleByMaxBlogComment();
+        int GetCarCountByKmSmallerThen1000();
         int GetCarCountByFuelGasolineOrDiesel();
         int GetCarCountByFuelElectric();
         string GetCarBrandAndModelByRentPriceDailyMax();
