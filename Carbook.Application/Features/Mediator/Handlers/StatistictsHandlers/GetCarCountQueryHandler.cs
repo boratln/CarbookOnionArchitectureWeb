@@ -2,6 +2,7 @@
 using Carbook.Application.Features.Mediator.Results.StatistictsResults;
 using Carbook.Application.Interfaces;
 using Carbook.Application.Interfaces.CarInterfaces;
+using Carbook.Application.Interfaces.StatistictsInterfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -13,16 +14,16 @@ namespace Carbook.Application.Features.Mediator.Handlers.StatistictsHandlers
 {
     public class GetCarCountQueryHandler : IRequestHandler<GetCarCountQuery, GetCarCountQueryResult>
     {
-        private readonly ICarRepository _carRepository;
+        private readonly IstatisticRepository _statisticrepository;
 
-        public GetCarCountQueryHandler(ICarRepository carRepository)
+        public GetCarCountQueryHandler(IstatisticRepository statisticRepository)
         {
-            _carRepository = carRepository;
+            _statisticrepository = statisticRepository;
         }
 
         public async Task<GetCarCountQueryResult> Handle(GetCarCountQuery request, CancellationToken cancellationToken)
         {
-            var value = _carRepository.GetCarCount();
+            var value =  _statisticrepository.GetCarCount();
             return new GetCarCountQueryResult
             {
                 CarCount = value,
