@@ -38,13 +38,13 @@ namespace Carbook.Persistence.Repositories.StatisticRepositories
 
         public double GetAvgRentPriceForDaily()
         {
-            var AverageRentPriceDaily = (double) _carbookContext.CarPricings.Where(x => x.PricingId == 3).Average(x => x.Price);
+            var AverageRentPriceDaily = (double)_carbookContext.CarPricings.Where(x => x.PricingId == 3).Average(x => x.Price);
             return AverageRentPriceDaily;
         }
 
         public double GetAvgRentPriceForMonthly()
         {
-           var AverageRentPriceMonthly=(double) _carbookContext.CarPricings.Where(x=>x.PricingId==4).Average(x => x.Price);
+            var AverageRentPriceMonthly = (double)_carbookContext.CarPricings.Where(x => x.PricingId == 4).Average(x => x.Price);
             return AverageRentPriceMonthly;
         }
 
@@ -52,25 +52,34 @@ namespace Carbook.Persistence.Repositories.StatisticRepositories
         {
             var AverageRentPriceWeekly = (double)_carbookContext.CarPricings.Where(x => x.PricingId == 5).Average(x => x.Price);
             return AverageRentPriceWeekly;
-                }
+        }
 
         public int GetBlogCount()
         {
-            var count=_carbookContext.Blogs.Count();
+            var count = _carbookContext.Blogs.Count();
             return count;
+        }
+
+        public string GetBlogTitleByMaxBlogComment()
+        {
+            throw new NotImplementedException();
         }
 
         public int GetBrandCount()
         {
-           var count=_carbookContext.Brands.Count();
-            return count;
+            throw new NotImplementedException();
+        }
+
+        public string GetBrandNameByMaxCar()
+        {
+            throw new NotImplementedException();
         }
 
         public string GetCarBrandAndModelByRentPriceDailyMax()
         {
             int PricingId = _carbookContext.Pricings.Where(x => x.Name == "Günlük").Select(x => x.PricingId).FirstOrDefault();
-            decimal price =  _carbookContext.CarPricings.Where(x => x.PricingId == PricingId).Select(x => x.Price).Max();
-            int CarId = _carbookContext.CarPricings.Where(x=>x.Price==price).Select(x=> x.CarId).FirstOrDefault();
+            decimal price = _carbookContext.CarPricings.Where(x => x.PricingId == PricingId).Select(x => x.Price).Max();
+            int CarId = _carbookContext.CarPricings.Where(x => x.Price == price).Select(x => x.CarId).FirstOrDefault();
             string brandModel = _carbookContext.Cars.Where(x => x.CarId == CarId).Include(x => x.Brand).Select(x => x.Brand.Name + " " + x.CarModel).FirstOrDefault();
             return brandModel;
         }
@@ -80,7 +89,7 @@ namespace Carbook.Persistence.Repositories.StatisticRepositories
             int PricingId = _carbookContext.Pricings.Where(x => x.Name == "Günlük").Select(x => x.PricingId).FirstOrDefault();
             decimal price = _carbookContext.CarPricings.Where(x => x.PricingId == PricingId).Select(x => x.Price).Min();
             int CarId = _carbookContext.CarPricings.Where(x => x.Price == price).Select(x => x.CarId).FirstOrDefault();
-            string brandModel=_carbookContext.Cars.Where(x=>x.CarId==CarId).Include(x=>x.Brand).Select(x=>x.Brand.Name+" "+x.CarModel).FirstOrDefault();
+            string brandModel = _carbookContext.Cars.Where(x => x.CarId == CarId).Include(x => x.Brand).Select(x => x.Brand.Name + " " + x.CarModel).FirstOrDefault();
             return brandModel;
         }
 
@@ -108,10 +117,40 @@ namespace Carbook.Persistence.Repositories.StatisticRepositories
             return count;
         }
 
+        public int GetCarCountByKmSmallerThen1000()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetCarCountByTranmissionIsAuto()
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetCarCountByTransmissionIsAuto()
         {
-           var count=_carbookContext.Cars.Where(x=>x.Transmission=="Otomatik").Count();
+            var count = _carbookContext.Cars.Where(x => x.Transmission == "Otomatik").Count();
             return count;
+        }
+
+        public int GetLocationCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        decimal IstatisticRepository.GetAvgRentPriceForDaily()
+        {
+            throw new NotImplementedException();
+        }
+
+        decimal IstatisticRepository.GetAvgRentPriceForMonthly()
+        {
+            throw new NotImplementedException();
+        }
+
+        decimal IstatisticRepository.GetAvgRentPriceForWeekly()
+        {
+            throw new NotImplementedException();
         }
     }
 }
