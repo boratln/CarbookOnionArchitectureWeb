@@ -538,6 +538,63 @@ namespace Carbook.Persistence.Migrations
                     b.ToTable("RentACarProcess");
                 });
 
+            modelBuilder.Entity("Carbook.Domain.Entities.Reservation", b =>
+                {
+                    b.Property<int>("ReservationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReservationId"));
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DriverLicenseYear")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DropOffLocationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PickUpLocationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SurName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ReservationId");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("DropOffLocationId");
+
+                    b.HasIndex("PickUpLocationId");
+
+                    b.ToTable("Reservations");
+                });
+
             modelBuilder.Entity("Carbook.Domain.Entities.Services", b =>
                 {
                     b.Property<int>("ServicesId")
@@ -767,6 +824,29 @@ namespace Carbook.Persistence.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("Carbook.Domain.Entities.Reservation", b =>
+                {
+                    b.HasOne("Carbook.Domain.Entities.Car", "Car")
+                        .WithMany("Reservations")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Carbook.Domain.Entities.Location", "DropOffLocation")
+                        .WithMany("DropOffReservation")
+                        .HasForeignKey("DropOffLocationId");
+
+                    b.HasOne("Carbook.Domain.Entities.Location", "PickUpLocation")
+                        .WithMany("PickUpReservation")
+                        .HasForeignKey("PickUpLocationId");
+
+                    b.Navigation("Car");
+
+                    b.Navigation("DropOffLocation");
+
+                    b.Navigation("PickUpLocation");
+                });
+
             modelBuilder.Entity("Carbook.Domain.Entities.TagCloud", b =>
                 {
                     b.HasOne("Carbook.Domain.Entities.Blog", "Blog")
@@ -806,6 +886,8 @@ namespace Carbook.Persistence.Migrations
                     b.Navigation("RentACarProcesses");
 
                     b.Navigation("RentACars");
+
+                    b.Navigation("Reservations");
                 });
 
             modelBuilder.Entity("Carbook.Domain.Entities.Customer", b =>
@@ -820,6 +902,10 @@ namespace Carbook.Persistence.Migrations
 
             modelBuilder.Entity("Carbook.Domain.Entities.Location", b =>
                 {
+                    b.Navigation("DropOffReservation");
+
+                    b.Navigation("PickUpReservation");
+
                     b.Navigation("RentACars");
                 });
 
