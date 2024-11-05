@@ -1,28 +1,21 @@
 ﻿@model List<ResultAboutDto>
-@foreach(var data in Model)
+@foreach (var item in Model)
 {
-	
+	<section class="ftco-section ftco-about">
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@item.ImageUrl);">
+				</div>
+				<div class="col-md-6 wrap-about ftco-animate">
+					<div class="heading-section heading-section-white pl-md-5">
+						<span class="subheading">Hakkımızda</span>
+						<h2 class="mb-4">@item.Title</h2>
 
-<section class="ftco-section ftco-about">
-			<div class="container">
-				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@data.ImageUrl);">
-					</div>
-					<div class="col-md-6 wrap-about ftco-animate">
-	          <div class="heading-section heading-section-white pl-md-5">
-	          	<span class="subheading">Hakkımızda</span>
-					
-						<h2 class="mb-4">@data.Title</h2>
-<p>
-	@data.Description
-	
-</p>
-					
-		
-	            <p><a href="#" class="btn btn-primary py-3 px-4">Hemen Araç Kirala </a></p>
-	          </div>
+						<p>@item.Description</p>
+						<p><a href="/RentACar/Index/" class="btn btn-primary py-3 px-4">Hemen Araç Kirala</a></p>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 }
