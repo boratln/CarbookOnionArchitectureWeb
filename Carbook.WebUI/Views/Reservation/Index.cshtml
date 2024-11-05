@@ -1,0 +1,62 @@
+﻿@model CreateReservationDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<div class="col-md-12 block-9 mb-md-5">
+    <form asp-controller="Reservation" asp-action="Index" class="bg-light p-5 contact-form">
+        <h3 class="alert alert-success">Araç Rezervasyon Formu </h3>
+        <br />
+        <div class="form-group">
+           <input type="hidden" asp-for="CarId" value="@ViewBag.id" />
+        </div>
+        <div class="form-group">
+            <label>Adınız</label>
+            <input type="text" asp-for="Name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Soyadınız</label>
+
+            <input type="text" asp-for="SurName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Yaşınız</label>
+
+            <input type="number" min="0" max="100" asp-for="Age" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Ehliyet Yılınız</label>
+
+            <input type="number" min="1900" max="2022" asp-for="DriverLicenseYear" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Mail Adresiniz</label>
+
+            <input type="email" asp-for="Email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Telefon Numaranız</label>
+
+            <input type="tel" asp-for="Phone" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Alınmak İstenilen Lokasyon</label>
+
+            @Html.DropDownListFor(x => x.PickUpLocationId, (List<SelectListItem>)ViewBag.x, new { @class = "form-control", @id = "drop" })
+        </div>
+        <div class="form-group">
+            <label>İade Edilecek Lokasyon</label>
+
+            @Html.DropDownListFor(x => x.DropOffLocationId, (List<SelectListItem>)ViewBag.x, new { @class = "form-control", @id = "drop" })
+        </div>
+        <div class="form-group">
+            <textarea name="" id="" cols="30" rows="7" name="Description" class="form-control" placeholder="Varsa eklemek istedikleriniz"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Rezervasyonu Tamamla" class="btn btn-primary py-3 px-5">
+        </div>
+    </form>
+
+</div>
+
