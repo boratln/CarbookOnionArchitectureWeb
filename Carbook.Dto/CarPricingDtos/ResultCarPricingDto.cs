@@ -9,6 +9,7 @@ namespace Carbook.Dto.CarPricingDtos
 	public class ResultCarPricingDto
 	{
         public int CarPricingId { get; set; }
+        public int CarId {  get; set; }
         public string PricingName { get; set; }
         public string BrandName { get; set; }
         public string CarModel { get; set; }
