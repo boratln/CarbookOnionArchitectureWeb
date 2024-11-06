@@ -12,6 +12,8 @@ namespace Carbook.Application.Features.RepositoryPattern.CommentRepositories
         void Create(T entity);
         void Update(T entity);
         void Remove(T entity);
+        int Count(int blogid);
+
         T GetById(int id);
         List<T> GetCommentsByBlogId(int id);
 
