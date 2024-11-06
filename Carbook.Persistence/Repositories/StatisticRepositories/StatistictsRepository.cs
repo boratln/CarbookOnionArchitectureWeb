@@ -67,7 +67,8 @@ namespace Carbook.Persistence.Repositories.StatisticRepositories
 
         public int GetBrandCount()
         {
-            throw new NotImplementedException();
+           var count= _carbookContext.Brands.Count();
+            return count;
         }
 
         public string GetBrandNameByMaxCar()
@@ -119,13 +120,15 @@ namespace Carbook.Persistence.Repositories.StatisticRepositories
 
         public int GetCarCountByKmSmallerThen1000()
         {
-            throw new NotImplementedException();
-        }
+			var count = _carbookContext.Cars.Where(x => x.Kilometer <= 1000).Count();
+			return count;
+		}
 
         public int GetCarCountByTranmissionIsAuto()
         {
-            throw new NotImplementedException();
-        }
+			var count = _carbookContext.Cars.Where(x => x.Transmission == "Otomatik").Count();
+			return count;
+		}
 
         public int GetCarCountByTransmissionIsAuto()
         {
@@ -135,22 +138,26 @@ namespace Carbook.Persistence.Repositories.StatisticRepositories
 
         public int GetLocationCount()
         {
-            throw new NotImplementedException();
+            var count = _carbookContext.Locations.Count();
+            return count;
         }
 
         decimal IstatisticRepository.GetAvgRentPriceForDaily()
         {
-            throw new NotImplementedException();
-        }
+			var AverageRentPriceDaily = (decimal)_carbookContext.CarPricings.Where(x => x.PricingId == 3).Average(x => x.Price);
+			return AverageRentPriceDaily;
+		}
 
         decimal IstatisticRepository.GetAvgRentPriceForMonthly()
         {
-            throw new NotImplementedException();
-        }
+			var AverageRentPriceDaily = (decimal)_carbookContext.CarPricings.Where(x => x.PricingId == 4).Average(x => x.Price);
+			return AverageRentPriceDaily;
+		}
 
         decimal IstatisticRepository.GetAvgRentPriceForWeekly()
         {
-            throw new NotImplementedException();
-        }
+			var AverageRentPriceDaily = (decimal)_carbookContext.CarPricings.Where(x => x.PricingId == 3).Average(x => x.Price);
+			return AverageRentPriceDaily;
+		}
     }
 }
