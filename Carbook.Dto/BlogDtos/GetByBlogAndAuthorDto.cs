@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Carbook.Dto.CommentDtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,6 @@ namespace Carbook.Dto.BlogDtos
     {
         public GetByBlogDto getByBlogDto { get; set; }
         public GetByBlogWithAuthorDto getByBlogWithAuthorDto { get; set; }
+        public CreateCommentDto createCommentDto { get; set; }
     }
 }
