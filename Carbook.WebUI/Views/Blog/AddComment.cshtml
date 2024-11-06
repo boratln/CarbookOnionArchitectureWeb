@@ -1,0 +1,24 @@
+﻿@model GetByBlogAndAuthorDto
+<div class="comment-form-wrap pt-5">
+    <h3 class="mb-5"> Yorum Yapın </h3>
+    <form method="post" asp-action="AddComment" asp-controller="Blog" class="p-5 bg-light">
+        <input type="hidden" name="id" value="@ViewBag.blogid">
+        <div class="form-group">
+            <label for="name">Adınız Soyadınız</label>
+            <input type="text" class="form-control" name="name" id="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Mail Adresiniz</label>
+            <input type="email" name="email" class="form-control"  id="email">
+        </div>
+       
+        <div class="form-group">
+            <label for="message">Yorumunuz</label>
+            <textarea name="" asp-for="createCommentDto.CommentText" name="message"id="message" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Yorum Yap" class="btn py-3 px-4 btn-primary">
+        </div>
+
+    </form>
+</div>
