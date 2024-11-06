@@ -25,18 +25,24 @@ namespace Carbook.Application.Features.Mediator.Handlers.BlogHandlers
         public async Task<GetBlogByIdQueryResult> Handle(GetBlogByIdQuery request, CancellationToken cancellationToken)
         {
             var value =  _repository.GetByBlog(request.Id);
-            return new GetBlogByIdQueryResult
+            if (value != null)
             {
-               Title = value.Title,
-               CreatedDate = value.CreatedDate,
-               AuthorId = value.AuthorId,
-               BlogId = value.BlogId,
-               AuthorName=value.Author.Name,
-               CategoryName=value.Category.Name,
-               CategoryId = value.CategoryId,
-               BlogDescription=value.BlogDescription,
-               CoverImageUrl = value.CoverImageUrl
-            };
+                return new GetBlogByIdQueryResult
+                {
+                    Title = value.Title,
+                    CreatedDate = value.CreatedDate,
+                    AuthorId = value.AuthorId,
+                    BlogId = value.BlogId,
+                    AuthorName = value.Author.Name,
+                    CategoryName = value.Category.Name,
+                    CategoryId = value.CategoryId,
+                    BlogDescription = value.BlogDescription,
+                    CoverImageUrl = value.CoverImageUrl
+                };
+            }
+
+            return new GetBlogByIdQueryResult();
+
         }
     }
 }
