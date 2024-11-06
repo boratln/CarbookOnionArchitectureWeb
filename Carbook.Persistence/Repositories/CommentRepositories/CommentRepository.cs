@@ -18,12 +18,18 @@ namespace Carbook.Persistence.Repositories.CommentRepositories
             _context = context;
         }
 
+        public int Count(int blogid)
+        {
+            var count = _context.Comments.Where(x => x.BlogId == blogid).Count();
+            return count;
+        }
+
         public void Create(Comment entity)
         {
            _context.Comments.Add(entity);
             _context.SaveChanges();
         }
-
+       
         public List<Comment> GetAll()
         {
             return _context.Comments.Select(x => new Comment
@@ -33,6 +39,7 @@ namespace Carbook.Persistence.Repositories.CommentRepositories
                 CommentText = x.CommentText,
                 CreatedDate = x.CreatedDate,
                 Name = x.Name,
+                
             }).ToList();
         }
 
@@ -57,5 +64,7 @@ namespace Carbook.Persistence.Repositories.CommentRepositories
             _context.Comments.Update(entity);
             _context.SaveChanges();
         }
+
+       
     }
 }
