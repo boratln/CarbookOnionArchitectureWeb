@@ -10,6 +10,7 @@ using Carbook.Application.Features.Mediator.Handlers.CarPricingHandlers;
 using Carbook.Application.Features.RepositoryPattern.CommentRepositories;
 using Carbook.Application.Interfaces;
 using Carbook.Application.Interfaces.BlogInterFaces;
+using Carbook.Application.Interfaces.CarFeatureInterfaces;
 using Carbook.Application.Interfaces.CarInterfaces;
 using Carbook.Application.Interfaces.RentACarInterfaces;
 using Carbook.Application.Interfaces.StatistictsInterfaces;
@@ -20,6 +21,7 @@ using Carbook.Domain.Entities;
 using Carbook.Persistence.Context;
 using Carbook.Persistence.Repositories;
 using Carbook.Persistence.Repositories.BlogRepositories;
+using Carbook.Persistence.Repositories.CarFeatureRepositories;
 using Carbook.Persistence.Repositories.CarPricingRepositories;
 using Carbook.Persistence.Repositories.CarRepositories;
 using Carbook.Persistence.Repositories.CommentRepositories;
@@ -97,6 +99,7 @@ builder.Services.AddScoped(typeof(ITagCloudRepository), typeof(TagCloudRepositor
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
 builder.Services.AddScoped(typeof(IstatisticRepository), typeof(StatistictsRepository));
 builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
+builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 
 //Mediatr Dependecy Injection
 
