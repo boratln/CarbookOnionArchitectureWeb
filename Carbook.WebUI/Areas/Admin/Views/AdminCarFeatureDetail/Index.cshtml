@@ -1,0 +1,45 @@
+﻿@model List<CarFeatureByCarIdDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="Featured">
+                    <div class="Featured-body">
+                        <h4 class="Featured-title">Araca Ait Özellikler Listesi</h4>
+                        <p class="Featured-subtitle mb-4">
+                            Araca ait özellik eklemesi yapılabilir,mevcut özellikler kaldırılabilir,ilgili güncellemeleri gerçekleştirebilirsiniz.
+                        </p>
+                        <form method="post">
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="form-check">
+                                    <input type="hidden" asp-for="@Model[i].CarFeatureId" />
+                                    <input type="hidden" asp-for="@Model[i].FeatureName" />
+                                    <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" />
+                                    <label class="form-check-label" for="@Model[i].Available">@Model[i].FeatureName</label>
+                                </div>
+                            }
+                            <br />
+                            <button class="btn btn-success">Değişiklikleri Kaydet</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
