@@ -1,0 +1,86 @@
+﻿@model ResultStatisticDto
+﻿<div class="row">
+    <div class="col-md-6 col-xl-3">
+        <div class="card bg-primary border-primary">
+            <div class="card-body">
+                <div class="mb-4">
+                    <span class="badge badge-soft-light float-right">Aktif Araçlar</span>
+                    <h5 class="card-title mb-0 text-white">Toplam Araç Sayısı</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-8">
+                        <h2 class="d-flex align-items-center mb-0 text-white">
+                             @Model.CarCount
+                        </h2>
+                    </div>
+                  
+                </div>
+
+              
+            </div>
+        </div>
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card bg-success border-success">
+            <div class="card-body">
+                <div class="mb-4">
+                    <span class="badge badge-soft-light float-right">Mevcut Lokasyonlar</span>
+                    <h5 class="card-title mb-0 text-white">Lokasyon Sayısı</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-8">
+                        <h2 class="d-flex align-items-center text-white mb-0">
+                             @Model.LocationCount
+                        </h2>
+                    </div>
+                 
+                </div>
+
+              
+            </div>
+        </div>
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card bg-warning border-warning">
+            <div class="card-body">
+                <div class="mb-4">
+                    <span class="badge badge-soft-light float-right">Marka Sayısı</span>
+                    <h5 class="card-title mb-0 text-white">Toplam Marka</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-8">
+                        <h2 class="d-flex align-items-center text-white mb-0">
+                             @Model.BrandCount
+                        </h2>
+                    </div>
+                 
+                </div>
+
+            
+            </div>
+        </div>
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card bg-info border-info">
+            <div class="card-body">
+                <div class="mb-4">
+                    <span class="badge badge-soft-light float-right">Kiralama Ücreti</span>
+                    <h5 class="card-title mb-0 text-white">Günlük Kiralama</h5>
+                </div>
+                <div class="row d-flex align-items-center mb-4">
+                    <div class="col-8">
+                        <h2 class="d-flex align-items-center text-white mb-0">
+                            ₺ @ViewBag.avgRentPriceForDaily
+                        </h2>
+                    </div>
+                  
+                </div>
+
+               
+            </div>
+        </div>
+    </div> <!-- end col-->
+</div>
