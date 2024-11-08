@@ -21,10 +21,10 @@ namespace Carbook.Application.Features.Mediator.Handlers.CarFeatureHandlers
             _carFeatureRepository = carFeatureRepository;
         }
 
-        public async Task<List<GetCarFeatureByCarIdQueryResult>> Handle(GetCarFeatureByCarIdQuery request, CancellationToken cancellationToken)
+        public async  Task< List<GetCarFeatureByCarIdQueryResult>> Handle(GetCarFeatureByCarIdQuery request, CancellationToken cancellationToken)
         {
         
-            var values =  _carFeatureRepository.GetCarFeatureByCarId(request.Id);
+            var values =  await _carFeatureRepository.GetCarFeatureByCarId(request.Id);
             return values.Select(x => new GetCarFeatureByCarIdQueryResult
             {
                 Available = x.Available,
