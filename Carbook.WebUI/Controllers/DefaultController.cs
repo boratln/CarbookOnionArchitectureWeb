@@ -17,6 +17,7 @@ namespace Carbook.WebUI.Controllers
 
 		public async  Task<IActionResult> Index()
         {
+			TempData["Navbar"] = "Anasayfa";
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync("https://localhost:7076/api/Locations");
 
