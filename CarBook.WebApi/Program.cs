@@ -10,9 +10,11 @@ using Carbook.Application.Features.Mediator.Handlers.CarPricingHandlers;
 using Carbook.Application.Features.RepositoryPattern.CommentRepositories;
 using Carbook.Application.Interfaces;
 using Carbook.Application.Interfaces.BlogInterFaces;
+using Carbook.Application.Interfaces.CarDescriptionInterfaces;
 using Carbook.Application.Interfaces.CarFeatureInterfaces;
 using Carbook.Application.Interfaces.CarInterfaces;
 using Carbook.Application.Interfaces.RentACarInterfaces;
+using Carbook.Application.Interfaces.ReviewInterfaces;
 using Carbook.Application.Interfaces.StatistictsInterfaces;
 using Carbook.Application.Interfaces.TagCloudInterfaces;
 using Carbook.Application.Repositories.CarPricingRepository;
@@ -21,11 +23,13 @@ using Carbook.Domain.Entities;
 using Carbook.Persistence.Context;
 using Carbook.Persistence.Repositories;
 using Carbook.Persistence.Repositories.BlogRepositories;
-using Carbook.Persistence.Repositories.CarFeatureRepositories;
+using Carbook.Persistence.Repositories.CarDescriptionRepositories;
+using Carbook.Persistence.Repositories.CarFeatureRepository;
 using Carbook.Persistence.Repositories.CarPricingRepositories;
 using Carbook.Persistence.Repositories.CarRepositories;
 using Carbook.Persistence.Repositories.CommentRepositories;
 using Carbook.Persistence.Repositories.RentACarRepositories;
+using Carbook.Persistence.Repositories.ReviewRepositories;
 using Carbook.Persistence.Repositories.StatisticRepositories;
 using Carbook.Persistence.Repositories.TagCloudRepositories;
 using Microsoft.AspNetCore.HttpLogging;
@@ -66,6 +70,7 @@ builder.Services.AddScoped<RemoveCarCommandHandler>();
 builder.Services.AddScoped<UpdateCarCommandHandler>();
 builder.Services.AddScoped<GetCarWithBrandQueryHandler>();
 builder.Services.AddScoped<GetLast5CarWithBrandQueryHandler>();
+builder.Services.AddScoped<GetCarWithBrandByCarIdQueryHandler>();
 
 
 //Category
@@ -100,12 +105,16 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepositor
 builder.Services.AddScoped(typeof(IstatisticRepository), typeof(StatistictsRepository));
 builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
 builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
+builder.Services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
+builder.Services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
 
 //Mediatr Dependecy Injection
 
 builder.Services.AddApplicationService(builder.Configuration);
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+	options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
