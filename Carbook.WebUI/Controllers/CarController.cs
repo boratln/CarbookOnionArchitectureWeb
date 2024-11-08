@@ -16,7 +16,9 @@ namespace Carbook.WebUI.Controllers
 
         public async  Task<IActionResult> Index()
         {
-            TempData["title"] = "Araçlar";
+			TempData["Navbar"] = "Araçlar";
+
+			TempData["title"] = "Araçlar";
             TempData["desc"] = "Araçlarımız";
             var client=_httpclientfactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7076/api/CarsPricings");
@@ -25,6 +27,13 @@ namespace Carbook.WebUI.Controllers
                 var values=JsonConvert.DeserializeObject<List<ResultCarPricingDto>>(jsonData);
                 return View(values);
             }
+            return View();
+        }
+        public async Task<IActionResult> CarDetail(int id)
+        {
+            TempData["title"] = "Araç Detayları";
+            TempData["desc"] = "Aracın Teknik Aksesuar ve Özellikleri";
+            ViewBag.CarId = id;
             return View();
         }
     }
