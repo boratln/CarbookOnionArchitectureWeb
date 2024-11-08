@@ -1,0 +1,98 @@
+﻿@model List<ResultReviewByCarIdDto>
+<div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+	<div class="row">
+		<div class="col-md-7">
+			<h3 class="head">@ViewBag.count Değerlendirme</h3>
+			@foreach(var data in Model)
+			{
+				int ratingint = int.Parse(data.Rating);
+				<div class="review d-flex">
+					<div class="user-img" style="background-image: url(/carbook-master/images/person_1.jpg)"></div>
+					<div class="desc">
+						<h4>
+							<span class="text-left">@data.CustomerName</span>
+							<span class="text-right">@data.Rating_Date.ToShortDateString()</span>
+						</h4>
+						<p class="star">
+							<span>
+								@for(int i = 0; i < ratingint; i++)
+								{
+									<i class="ion-ios-star"></i>
+
+								}
+								
+							</span>
+							<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
+						</p>
+						<p>@data.Comment</p>
+					</div>
+				</div>
+
+			}
+	
+		
+		</div>
+		<div class="col-md-5">
+			<div class="rating-wrap">
+				<h3 class="head">Değerlendirmenizi yapın</h3>
+				<div class="wrap">
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(98%)
+						</span>
+						<span>20 Değerlendirme</span>
+					</p>
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(85%)
+						</span>
+						<span>10 Değerlendirme</span>
+					</p>
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(70%)
+						</span>
+						<span>5 Değerlendirme</span>
+					</p>
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(10%)
+						</span>
+						<span>0 Değerlendirme</span>
+					</p>
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(0%)
+						</span>
+						<span>0 Değerlendirme</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
