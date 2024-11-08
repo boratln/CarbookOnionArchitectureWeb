@@ -6,8 +6,10 @@ namespace Carbook.WebUI.Controllers
     {
         public IActionResult Index()
         {
-            TempData["title"] = "İletişim";
-            TempData["desc"] = "İletişim Bilgilerimiz";
+			TempData["Navbar"] = "Hakkımızda";
+
+			TempData["title"] = "Hakkımızda";
+            TempData["desc"] = "Site Hakkında";
             return View();
         }
     }
