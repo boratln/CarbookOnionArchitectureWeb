@@ -19,7 +19,9 @@ namespace Carbook.WebUI.Controllers
 
         public async Task <IActionResult> Index()
         {
-            TempData["title"] = "Bloglar";
+			TempData["Navbar"] = "Blog";
+
+			TempData["title"] = "Bloglar";
             TempData["desc"] = "Bloglarımız";
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7076/api/Blogs/GetAllBlogWithAuthor");
