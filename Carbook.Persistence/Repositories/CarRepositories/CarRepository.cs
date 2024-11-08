@@ -27,7 +27,11 @@ namespace Carbook.Persistence.Repositories.CarRepositories
             return values;
         }
 
-		
+		public async Task<Car> GetCarWithBrandByCarId(int CarId)
+		{
+			var value=await _context.Cars.Include(x=>x.Brand).Where(x=>x.CarId== CarId).FirstOrDefaultAsync();
+            return value;
+		}
 
 		public async Task<List<Car>> GetLast5CarsWithBrand()
         {
