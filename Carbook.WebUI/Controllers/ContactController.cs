@@ -16,11 +16,16 @@ namespace Carbook.WebUI.Controllers
         //Mesaj gönderme işlemi
         public IActionResult Index()
         {
+			TempData["Navbar"] = "İletişim";
+
+			TempData["title"] = "İletişim";
+            TempData["desc"] = "Bize Ulaşabilirsiniz";
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Index(CreateContactDto createContactDto)
         {
+   
             var client=_httpClientFactory.CreateClient();
             createContactDto.SendDate = DateTime.Now;
             var jsonData = JsonConvert.SerializeObject(createContactDto);
