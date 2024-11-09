@@ -19,6 +19,7 @@ using Carbook.Application.Interfaces.StatistictsInterfaces;
 using Carbook.Application.Interfaces.TagCloudInterfaces;
 using Carbook.Application.Repositories.CarPricingRepository;
 using Carbook.Application.Services;
+using Carbook.Application.Tools;
 using Carbook.Domain.Entities;
 using Carbook.Persistence.Context;
 using Carbook.Persistence.Repositories;
@@ -32,10 +33,42 @@ using Carbook.Persistence.Repositories.RentACarRepositories;
 using Carbook.Persistence.Repositories.ReviewRepositories;
 using Carbook.Persistence.Repositories.StatisticRepositories;
 using Carbook.Persistence.Repositories.TagCloudRepositories;
+using CarBook.WebApi.Hubs;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.IdentityModel.Tokens;
+using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(opt =>
+{
+	opt.AddPolicy("CorsPolicy", builder =>
+	{
+		builder.AllowAnyHeader()
+		.AllowAnyMethod()
+		.SetIsOriginAllowed((host) => true)
+		.AllowCredentials();
+	});
+});
+builder.Services.AddSignalR();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+	opt.RequireHttpsMetadata = false;
+	opt.TokenValidationParameters = new TokenValidationParameters
+	{
+		ValidAudience = JwtTokenDefaults.ValidAudience,
+		ValidIssuer = JwtTokenDefaults.ValidIssiuer,
+		ClockSkew = TimeSpan.Zero,
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenDefaults.Key)),
+		ValidateLifetime = true,
+		ValidateIssuerSigningKey = true
+	};
+});
 
+
+#region Registiraons
 // Add services to the container.
 builder.Services.AddScoped<CarbookContext>();
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();
@@ -107,19 +140,27 @@ builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepositor
 builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 builder.Services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
 builder.Services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
-
+#endregion
 //Mediatr Dependecy Injection
 
 builder.Services.AddApplicationService(builder.Configuration);
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-	options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
-});
+
+builder.Services.AddControllers()
+	.AddFluentValidation(config =>
+	{
+		config.RegisterValidatorsFromAssemblies(new[] { Assembly.GetExecutingAssembly() });
+	})
+	.AddJsonOptions(options =>
+	{
+		options.JsonSerializerOptions.ReferenceHandler =
+			System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+	});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
+app.UseCors("CorsPolicy");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -128,9 +169,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<CarHub>("/carhub");
 app.Run();
