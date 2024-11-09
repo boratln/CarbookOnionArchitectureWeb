@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Carbook.WebUI.Controllers
 {
@@ -17,8 +18,14 @@ namespace Carbook.WebUI.Controllers
 
 		public async  Task<IActionResult> Index()
         {
+			var token = User.Claims.FirstOrDefault(x => x.Type == "accessToken")?.Value;
 			TempData["Navbar"] = "Anasayfa";
+			if (token != null)
+			{
+
+			
 			var client = _httpClientFactory.CreateClient();
+			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 			var responseMessage = await client.GetAsync("https://localhost:7076/api/Locations");
 
 			var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -30,7 +37,8 @@ namespace Carbook.WebUI.Controllers
 												Value = x.LocationId.ToString()
 											}).ToList();
 			ViewBag.x = values2;
-			return View();
+            }
+            return View();
 		}
 		[HttpPost]
 		public IActionResult Index(string book_pick_date, string book_off_date, string time_pick, string time_off, string locationID)
